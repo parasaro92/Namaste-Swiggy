@@ -1,0 +1,114 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+
+.logo {
+  width: 100px;
+}
+
+.nav-items {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  width: 100%;
+}
+
+.nav-items > ul {
+  font-size: 20px;
+  display: flex;
+  padding: 0px 20px;
+  list-style-type: none;
+}
+
+.nav-items > ul > li {
+  padding: 0 10px;
+  margin: 0 10px;
+}
+
+.res-card {
+  /* display: flex; */
+  /* flex-direction: center; */
+  width: 250px;
+  /* height: 100%; */
+  /* border: 1px solid #999; */
+  /* padding: 10px; */
+  margin: 10px;
+  background-color: #f5f5f5;
+
+  &:hover {
+    border: 1px solid #999;
+    cursor: pointer;
+  }
+}
+
+h4 {
+  margin: 10px;
+}
+
+.res-card-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.search {
+  align-items: center;
+  display: flex;
+  margin: 10px;
+  /* height: 30px; */
+  /* justify-content: center;
+  width: 100%;
+  border: 1px solid black; */
+}
+
+.res-logo {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.filter-btn {
+  width: 170px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  background-color: #999;
+  margin: 10px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #ccc;
+  }
+}
+
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.shimmer-card {
+  width: 200px;
+  height: 300px;
+  margin: 10px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #999;
+}
+
+.filter {
+  display: flex;
+  color: #f5f5f5;
+}
+
+input {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.user-card {
+  background-color: #f5f5f5;
+  border: 1px solid #999;
+  box-shadow: 0px 0px 5px #999;
+  margin: 20px 0;
+}
