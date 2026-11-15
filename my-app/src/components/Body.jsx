@@ -1,16 +1,17 @@
-import RestaurantCard, { withPromotedLabel } from './RestaurantCard';
-import { useState } from 'react';
+import RestaurantCard, { WithPromotedLabel } from './RestaurantCard';
+import { useContext, useState } from 'react';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
 // import {ALL_RESTAURANTS_API} from './utils/constant';
 import useOnlineStatus from './utils/useOnlineStatus';
 import useRestaurantList from './utils/useRestaurantList';
+import UserContext from './utils/UserContext';
 
 const Body = () => {
   // const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   // const [listOfRestaurant, setListOfRestaurant] = useState([]);
   const [searchText, setSearchText] = useState('');
-  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard)
+  const RestaurantCardPromoted = WithPromotedLabel(RestaurantCard);
 
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -26,6 +27,8 @@ const Body = () => {
   const {listOfRestaurant, filteredRestaurant, setFilteredRestaurant} = useRestaurantList()
 
   const onlineStatus = useOnlineStatus()
+
+  const {loggedInUser, setUserName} = useContext(UserContext)
 
   if (onlineStatus == false)
     return (
@@ -53,6 +56,10 @@ const Body = () => {
           }}>
             Search
           </button>
+        </div>
+        <div className="search m-4 p-4 flex items-center">
+          <label>User Name:</label>
+          <input type="text" className='border border-solid border-black' value={loggedInUser} onChange={(e) => setUserName(e.target.value)} />
         </div>
         
         <div className="search m-4 p-4 flex items-center">

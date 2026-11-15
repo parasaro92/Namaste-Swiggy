@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import {CDN_URL} from "./utils/constant";
 import "tailwindcss";
+import UserContext from "./utils/UserContext";
 
 const RestaurantCard = ( props ) => {
   const {resData} = props;
+  const {loggedInUser} = useContext(UserContext)
 
   const {
     cloudinaryImageId,
@@ -21,11 +24,13 @@ const RestaurantCard = ( props ) => {
       <h4>{avgRating}</h4>
       <h4>{costForTwo}</h4>
       <h4>Delivery Time: {sla.deliveryTime} minutes</h4>
+      <h4>User: {loggedInUser}</h4>
     </div>
   );
 }
 
-export const withPromotedLabel = (RestaurantCard) => {
+// Higher Order Components
+export const WithPromotedLabel = (RestaurantCard) => {
   return (props) => {
     return (
       <div>

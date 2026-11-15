@@ -1,12 +1,15 @@
 import {LOGO_URL} from "./utils/constant";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "./utils/useOnlineStatus";
 import "tailwindcss";
+import UserContext from "./utils/UserContext";
 
 const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
   const onlineStatus = useOnlineStatus()
+
+  const {loggedInUser} = useContext(UserContext)
 
   useEffect(() => {
     console.log("Header rendered");
@@ -40,6 +43,7 @@ const Header = () => {
             onClick={() => btnNameReact === "Login" ? setBtnNameReact("Logout") : setBtnNameReact("Login")}>
             {btnNameReact}
           </button>
+          <li className="px-4 font-bold">{loggedInUser}</li>
         </ul>
       </div>
     </div>
