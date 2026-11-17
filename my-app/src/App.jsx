@@ -3,7 +3,8 @@ import Header from './components/Header';
 // import Body from './components/Body';
 import { Outlet } from 'react-router-dom';
 import UserContext from './components/utils/UserContext';
-// import RestaurantCard from './components/RestaurantCard';
+import {Provider} from 'react-redux';
+import appStore from './components/utils/appStore';
 
 const App = () => {
   const [userName, setUserName] = useState()
@@ -16,12 +17,14 @@ const App = () => {
   }, [])
 
   return (
-    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-      <div className="app">
-        <Header />
-        <Outlet />
-      </div>
-    </UserContext.Provider>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <div className="app">
+          <Header />
+          <Outlet />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 

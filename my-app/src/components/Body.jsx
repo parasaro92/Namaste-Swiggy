@@ -43,7 +43,7 @@ const Body = () => {
   ) : (
     <div className="body">
       <div className="filter flex">
-        <div className="search m-4 p-4">
+        <div className="m-2 p-2">
           <input type="text" className='border border-solid border-black' placeholder="Search for restaurants..." value={searchText} onChange={(e) => setSearchText(e.target.value)} />
           <button className="px-3 py-1 bg-green-400 m-4 rounded-lg" onClick={() => {
             const searchInput = searchText.toLowerCase();
@@ -57,12 +57,8 @@ const Body = () => {
             Search
           </button>
         </div>
-        <div className="search m-4 p-4 flex items-center">
-          <label>User Name:</label>
-          <input type="text" className='border border-solid border-black' value={loggedInUser} onChange={(e) => setUserName(e.target.value)} />
-        </div>
         
-        <div className="search m-4 p-4 flex items-center">
+        <div className="flex items-center">
           <button className="px-3 py-1 bg-gray-500 rounded-lg"
             onClick={() => {
               const filteredRestaurants = listOfRestaurant.filter(
@@ -75,6 +71,11 @@ const Body = () => {
           >
             Top Rated Restaurants
           </button>
+        </div>
+
+        <div className="m-2 p-2 flex items-center">
+          <label className='text-black p-3'>User Name:</label>
+          <input type="text" className='border border-solid border-black' value={loggedInUser} onChange={(e) => setUserName(e.target.value)} />
         </div>
       </div>
       <div className="res-card-list">
